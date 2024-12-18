@@ -1,0 +1,33 @@
+#include <iostream>
+#include <string>
+#include <cmath>
+#include <windows.h>
+#include <clocale>
+
+// Function to calculate the factorial of a number
+int factorial(int n) {
+    if (n == 0 || n == 1)
+        return 1;
+    else
+        return n * factorial(n - 1);
+}
+// Функция очистки экрана
+void clearScreen() {
+    #ifdef _WIN32
+        system("cls");
+    #else
+        system("clear");
+    #endif
+}
+
+int main() {
+    setlocale(LC_ALL, "Ru");
+    
+    std::cout << "Введите число: ";
+    int num;
+    std::cin >> num;
+
+    std::cout << "Факториал числа " << num << " равен " << factorial(num) << std::endl;
+   
+    return 0;
+}
